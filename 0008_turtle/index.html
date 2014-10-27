@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+<head>
+	<link rel="stylesheet" href="../common.css">
+	<style>
+	#d-animpath {
+		stroke: white;
+		stroke-width: 10;
+		fill: none;
+	}
+	#stroke-animpath {
+		stroke: white;
+		fill: none;
+		stroke-dasharray: 50;
+		stroke-width: 10;
+
+		transition: stroke-dasharray 113ms;
+	}
+
+	#stroke-animpath:hover {
+		stroke: fuchsia;
+		stroke-dasharray: 100;
+	}
+
+	#turtle {
+		fill: fuchsia;
+	}
+
+	.turtle {
+		fill: fuchsia;
+	}
+	</style>
+	<script src="turtle.js"></script>
+</head>
+<body>
+	<svg>
+		<path id="stroke-animpath" d="M0,0L100,0"></path>
+	</svg>
+	<svg>
+		<path id="d-animpath" d="M0,0L100,0L100,100">
+			<animate
+				id="anim"
+				attributeName="d"
+				from="M0,0L100,0L100,0"
+				to="M0,0L100,0L100,100"
+				dur="2s"
+				repeatCount="1">
+			</animate>			
+		</path>
+		<path id="current"
+		></path>		
+		<path id="turtle"
+			d="M-10,-10L10,0L-10,10Z">
+			<animateMotion dur="113ms"
+			repeatCount="1" rotate="auto" 
+			path="M100,0L100,100" fill="freeze" onend="bar(event);">
+			</animateMotion>
+		</path>
+	</svg>
+	<svg id="sandbox">
+	</svg>
+	<script>
+		var a = document.getElementById('anim');
+		console.log(a);
+
+		function foo(e) {
+			var t = e.target;
+			var attr = t.attributes.attributeName.value;
+			var to = t.attributes.to.value;
+			t.parentElement.setAttribute(attr, to);
+		}
+
+		function bar(e) {
+			var t = e.target;
+			t.parentElement.setAttribute('transform',
+				'translate(100 100) rotate(45)');
+			console.log(t.parentElement.removeChild(t));
+		}
+		a.onend = foo;
+		var sandbox = document.getElementById('sandbox');
+		window.turtle = new Turtle(sandbox);
+	</script>	
+</body>
+</html>

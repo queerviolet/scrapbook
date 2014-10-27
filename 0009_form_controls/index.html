@@ -37,8 +37,7 @@
 		-webkit-user-select: none;
 	}
 
-	input[type="radio"]:hover + label,
-	label:hover {
+	input[type="radio"] + label:hover {
 		background: #909;
 	}
 
@@ -47,6 +46,72 @@
 		background: fuchsia;
 	}
 
+	table {
+		color: white;
+		width: 100%;
+		text-align: center;
+		border-spacing: 0;
+		border-collapse: collapse;
+	}
+
+
+
+	tbody > tr > td {
+		padding: 18px;
+	}
+
+
+	tbody {
+		background: #aeb;
+		color: black;
+	}
+
+	tbody > tr > td:last-of-type {
+		border-left: 1px solid blue;
+	}
+
+	.columns {
+		width: 50%;
+	}
+
+	tr.score {
+		display: block;
+		position: absolute;
+		left: 50%;
+	}
+
+	tr.score > th {
+		position: absolute;
+		transform: translate3d(-50%,0,0);
+	}
+
+	tr.score > th > h1 {
+		font-size: 18px;
+		min-width: 150px;
+	}
+
+	result {
+		display: flex;	
+		position: relative;
+		width: 100px;	
+		height: 100px;
+		border: thin solid red;
+	}
+
+	result > bar {
+		position: absolute;
+		width: 50%;
+		bottom: 0;
+		left: 0;
+		background: white;
+	}
+
+	bar.low {
+		bottom: 0;
+		height: 1%;
+	}
+
+	tbody > tr > td { height: 100px; }
 	</style>
 </head>
 <body>
@@ -64,5 +129,49 @@
 			<label for="t5">five</label>
 		</section>
 	</form>
+	<table>
+		<colgroup span="2" class="columns"></colgroup>	
+		<thead>
+			<th>Yours</th>
+			<th>Mine</th>
+		</thead>		
+		<tbody>
+			<tr colspan="2" class="score">
+				<th>
+					<h1>Property One</h1>
+					<result class="wrong">
+						<bar class="low"></bar>
+						<bar class="high"></bar>
+					</result>
+				</th>
+			</tr>
+			<tr>
+				<td>Low</td>
+				<td>High</td>
+			</tr>
+			<tr colspan="2" class="score">
+				<th>
+					<h1>Property Two</h1>
+					<result class="wrong bars"
+						data-left="10%" data-right="100%"></result>					
+				</th>
+			</tr>
+			<tr>
+				<td>High</td>
+				<td>Low</td>
+			</tr>
+			<tr colspan="2" class="score">
+				<th>
+					<h1>Property Three</h1>
+					<result class="correct"
+						data-left="100%" data-right="100%"></result>
+				</th>
+			</tr>			
+			<tr>
+				<td>High</td>
+				<td>High</td>
+			</tr>
+		</tbody>
+	</table>
 </body>
 </html>
