@@ -33,7 +33,7 @@
 	<script src="turtle.js"></script>
 </head>
 <body>
-	<svg>
+	<!--<svg>
 		<path id="stroke-animpath" d="M0,0L100,0"></path>
 	</svg>
 	<svg>
@@ -48,7 +48,7 @@
 			</animate>			
 		</path>
 		<path id="current"
-		></path>		
+		></path>	-->	
 		<path id="turtle"
 			d="M-10,-10L10,0L-10,10Z">
 			<animateMotion dur="113ms"
@@ -60,7 +60,7 @@
 	<svg id="sandbox">
 	</svg>
 	<script>
-		var a = document.getElementById('anim');
+		/*var a = document.getElementById('anim');
 		console.log(a);
 
 		function foo(e) {
@@ -77,8 +77,26 @@
 			console.log(t.parentElement.removeChild(t));
 		}
 		a.onend = foo;
-		var sandbox = document.getElementById('sandbox');
-		window.turtle = new Turtle(sandbox);
+		*/		
+		var sandbox = document.getElementById('sandbox');				
+		sandbox.addEventListener('load', function main() {
+			var sandbox = document.getElementById('sandbox');		
+			window.turtle = new Turtle(sandbox);
+
+			turtle.moveTo(100, 100);
+			turtle.turn(Math.PI / 2);
+			turtle.forward(10);
+			turtle.turn(Math.PI / 2);
+			turtle.forward(10);
+
+			turtle.moveTo(100, 100);
+			var segs = 10;
+			for (var i = 0; i != segs; ++i) {
+				turtle.forward(20);
+				turtle.turn(2 * Math.PI / segs);
+			}
+		});
+
 	</script>	
 </body>
 </html>

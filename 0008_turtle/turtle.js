@@ -1,58 +1,80 @@
 var Turtle = function Turtle(svg) {
 	this.svg = svg;
+	console.log(svg.width.baseVal.value);
 	this.pos = [svg.width.baseVal.value / 2,
 		svg.height.baseVal.value / 2];
+	console.dir(this.pos);
 	this.bearing = [1,0];
 	this.rot = 0;
-	this.stroke = 'fuchsia';
 	this.cursor = this.makeCursor();
 
-	this.animate = '2s';//113ms';	
-	//this.animCursorTo(this.pos);	
-
+	this.stroke = 'fuchsia';
+	this.animate = '2s';//113ms';
 	this.penDown();
 }
 
 Turtle.CURSOR_PATH = 'M-10,-10L10,0L-10,10Z';
 Turtle.SVG_NS = 'http://www.w3.org/2000/svg';
 
+Turtle.prototype.penUp = function Turtle_penUp() {
+	this.path = null;
+}
+
 Turtle.prototype.penDown = function Turtle_penDown() {
-	this.stroke = this.mk('path', {
-		d: 'M' + this.pos,
-		fill: 'none',
-		stroke: this.stroke
-	});
-	this.svg.appendChild(this.stroke);
+	if (!this.path) {
+		this.path = this.mk('path', {
+			fill: 'none',
+			stroke: this.stroke
+		});
+		this.path.pathSegList.appendItem(this.path.$M(this.pos.x, this.pos.y));
+		this.svg.appendChild(this.path);
+	}
 };
 
-Turtle.prototype.lineTo = function Turtle_lineTo(x, y) {};
+Turtle.prototype.moveTo = function Turtle_moveTo(x, y) {
+	this.addPathSegAbs(this.path.$M(x, y));
+};
 
-Turtle.prototype.animCursorTo = function Turtle_animCursorTo(to) {
-	var queue = this.cursor.getElementsByTagName('animateMotion');
-	var from = this.pos;
-	var prev = null;
-	if (queue.length != 0) {
-		prev = queue[queue.length - 1];
-		from = prev.toPos;
+Turtle.prototype.turn = function Turtle_turn(rad) {
+	this.bearing = this.bearing.rot2(rad);
+};
+
+Turtle.prototype.forward = function Turtle_forward(mag) {
+	var newPos = this.pos.sum2(this.bearing.scale2([mag, mag]));
+	var seg = this.path.$L(newPos.x, newPos.y);
+	this.addPathSegAbs(seg);
+	return this;
+};
+
+Turtle.prototype.addPathSegAbs = function Turtle_addPathSegAbs(segment) {
+	if (this.animate) {
+		//this.animateStrokeSegment(segment);
+		//this.animateCursorSegment(segment);
 	}
+	if (this.path) {
+		this.path.pathSegList.appendItem(segment);
+	}
+	this.pos = [segment.x, segment.y];
+};
+
+Turtle.prototype.animCursorSegment = function Turtle_animCursorSegment(segment) {
 	var anim = this.mk('animateMotion', {
+		'class': 'turtle-anim',
 		dur: this.animate,
 		repeatCount: 1,
 		rotate: 'auto',
-		path: 'M' + from + 'L' + to,
+		path: 'M' + this.pos.str2 + segment,
 		fill: 'freeze',
 		begin: 'indefinite'
 	});
-	anim.fromPos = from;
-	anim.toPos = to;	
-	anim.onend = this.onAnimEnd.bind(this);
+	anim.onend = this.onCursorAnimEnd.bind(this);
 	this.cursor.appendChild(anim);
 	anim.beginElement();
 	return this;
 };
 
 Turtle.prototype.onAnimEnd = function Turtle_onAnimEnd(evt) {
-	/*var t = evt.target;
+	var t = evt.target;
 	var tag = t.tagName;
 	var p = t.parentElement;
 	t.parentElement.removeChild(t);
@@ -63,14 +85,14 @@ Turtle.prototype.onAnimEnd = function Turtle_onAnimEnd(evt) {
 		if (p == this.cursor) {
 			this.cursor.setAttribute('transform', this.cursorTransform());
 		}
-	}*/
+	}
 };
 
 Turtle.prototype.makeCursor = function Turtle_makeTurtle() {
 	var cursor = this.mk('path', {
 		d: Turtle.CURSOR_PATH,
-		'class': 'turtle'/*,
-		transform: this.cursorTransform()*/
+		'class': 'turtle',
+		transform: this.cursorTransform()
 	});
 	this.svg.appendChild(cursor);
 	return cursor;
@@ -159,18 +181,6 @@ Array.prototype.scale2 = function scale2(other) {
 	return [this.x * other.x, this.y * other.y];
 };
 
-var PathNode = function PathNode(cmd, params) {
-	this.cmd = cmd;
-	this.params = params;
-	for (var i = 0; i != params.length; ++i) {
-		this[params[i][0]] = params[i][1];
-	}
-};
-
-PathNode.prototype.toString = function PathNode_toString() {
-	return this.cmd + this.params.map(function(p) { return p[1]; }).join(' ');
-};
-
 Object.defineProperties(SVGElement.prototype, {
 	'anim': {
 		enumerable: true,
@@ -181,43 +191,9 @@ Object.defineProperties(SVGElement.prototype, {
 	}
 });
 
-var Anim = function Anim(element) {
-	this.element = element;
-	this.queue = [];
-};
-
-Anim.prototype.moveAlongPath = function Anim_moveAlongPath(path, opt_options) {
-	var options = opt_options || {};
-	options.dur = options.dur || '1s';
-	options.repeatCount = options.repeatCount || 1;
-	options.rotate = options.rotate || 'auto';
-	options.fill = options.freeze || 'fill';
-	options.begin = options.begin || 'indefinite';
-
-	var anim = this.mk('animateMotion', options);
-	anim.onbegin = this.beginMoveHandler.bind(this);
-	anim.onend = this.endMoveHandler.bind(this);
-
-	this.element.appendChild(anim);
-	if (options.begin == 'indefinite') {
-		anim.beginElement();
-	}
-	return this;	
-};
-
-Anim.prototype.beginMoveHandler = function Anim_beginMoveHandler(evt) {
-	if (this.originalTransform) {
-		this.element.setAttribute('transform', this.originalTransform);
-	} else if (this.element.hasAttribute('transform')) {
-		this.originalTransform = this.element.getAttribute('transform');
-	}
-};
-
-Anim.prototype.endMoveHandler = function Anim_endMoveHandler(evt) {
-	this.element.setAttribute('transform', Anim.FinalTransformForMove(evt.path));
-};
-
 SVGPathElement.prototype.$M = SVGPathElement.prototype.createSVGPathSegMovetoAbs;
 SVGPathElement.prototype.$m = SVGPathElement.prototype.createSVGPathSegMovetoRel;
 SVGPathElement.prototype.$L = SVGPathElement.prototype.createSVGPathSegLinetoAbs;
 SVGPathElement.prototype.$l = SVGPathElement.prototype.createSVGPathSegLinetoRel;
+
+
