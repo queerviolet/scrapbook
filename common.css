@@ -6,8 +6,6 @@ html, body {
 	height: 100%;
 }
 
-body {}
-
 body {
 	background: black;
 
@@ -22,7 +20,12 @@ body {
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+}
 
+text {
+	font-family: 'Ubuntu Mono', Menlo;
+	font-size: 18px;
+	fill: white;
 }
 
 p { 

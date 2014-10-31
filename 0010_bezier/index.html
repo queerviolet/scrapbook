@@ -1,0 +1,279 @@
+<!doctype html>
+<html>
+<head>
+	<link rel="stylesheet" href="../common.css">
+	<script src="../vec2.js"></script>
+	<style>
+		svg {
+			width: 100%;
+			height: 100%;
+			stroke-width: 2;			
+		}
+
+		svg.defs {
+			width: 0;
+			height: 0;
+		}
+
+		path {
+			stroke: #07f;
+			fill: none;
+		}
+
+
+		.point > circle {
+			stroke: none;
+			fill: #222;
+		}
+
+		.point > text {
+			text-anchor: middle;
+			fill: white;
+		}
+
+		.interp {
+			stroke: #222;
+		}
+
+		#partial {
+			stroke: fuchsia;
+		}
+
+		form {
+			background: #222;
+			color: white;
+			padding: 9px;
+		}		
+
+		#controls {
+			display: flex;
+			flex-direction: column;
+			position: absolute;
+			top: 10px;
+			left: 10px;			
+		}
+
+		#controls > * + * {
+			margin-top: 9px;
+		}
+
+		#p9 {
+			fill: white;
+		}
+
+		td:nth-of-type(1) { text-align: left; color: #999;}
+		td:nth-of-type(2) { text-align: right; }
+		td:nth-of-type(3) { text-align: left; }
+
+		input[type="number"] {
+			padding: 4.5px;
+			background: #555;
+			color: white;
+		}
+
+		input::-webkit-inner-spin-button,
+		input::-webkit-inner-spin-button:before,
+		input::-webkit-inner-spin-button:after {
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<svg id="svg" viewbox="0 -512 1024 1024" preserveAspectRatio="xMidYMid">		
+		 http://www.atalasoft.com/blogs/stevehawley/may-2013/how-to-split-a-cubic-bezier-curve
+		<path id="bezier" d="M 0,0 C 256,-128 256,128 512,0"></path>
+		<path id="partial" d="M 0 0 C 128,-64 192,-32 256,0"></path>
+	</svg>
+	<section id="controls">
+		<form>
+			<label for="t_min">t<sub>min</sub> = </label>
+			<input type="number" id="t_min"
+				value="0.0" min="0" max="1.0" step="0.01"
+				oninput="tInput(event);">
+			<label for="t_max">t<sub>max</sub> = </label>
+			<input type="number" id="t_max"
+				value="0.5" min="0" max="1.0" step="0.01"
+				oninput="tInput(event);">
+		</form>
+		<form>
+			<table>
+				<thead>
+					<tr>
+						<th colspan="3">cubic bezier</th>
+					</tr>
+				</thead>
+				<tbody id="data">
+				</tbody>
+			</table>
+		</form>
+	</section>
+	<script>
+		var movCmd = bezier.pathSegList[0];
+		var curveCmd = bezier.pathSegList[1];
+
+		var Curve = {
+			get start() {
+				return [movCmd.x, movCmd.y];
+			},
+			get cp0() {
+				return [curveCmd.x1, curveCmd.y1];
+			},
+			get cp1() {
+				return [curveCmd.x2, curveCmd.y2];
+			},
+			get end() {
+				return [curveCmd.x, curveCmd.y];
+			},
+			at: function(t) {
+				var p = [this.start, this.cp0, this.cp1, this.end];
+
+				p[4] = p[0].lerp2(p[1], t);
+				p[5] = p[1].lerp2(p[2], t);
+				p[6] = p[2].lerp2(p[3], t);
+
+				p[7] = p[4].lerp2(p[5], t);
+				p[8] = p[5].lerp2(p[6], t);
+
+				p.val = p[9] = p[7].lerp2(p[8], t);
+				return p;
+			}	
+		};
+
+		SVG_NS = 'http://www.w3.org/2000/svg';
+		function mk(tag) {
+			var attrs = {};
+			var children = [];
+			for (var i = 1; i < arguments.length; ++i) {
+				if (Array.isArray(arguments[i])) {
+					children = arguments[i];
+				} else {
+					attrs = arguments[i];
+				}
+			}
+			var el = document.createElementNS(SVG_NS, tag);
+			for (attr in attrs) {
+				el.setAttribute(attr, attrs[attr]);
+			}
+			for (var i = 0; i != children.length; ++i) {
+				if (children[i] instanceof Node) {
+					el.appendChild(children[i]);
+				} else {
+					el.textContent = children[i];
+				}
+			}
+			return el;
+		};
+
+		function Construction(svg) {
+			this.svg = svg;
+			this.points = [];
+			this.segs = [];			
+			for (var i = 0; i != 10; ++i) {
+				this.points[i] = mk('g', {'class': 'point'}, [
+					mk('circle', {
+						cx: 0,
+						cy: 0,
+						r: 5
+					}),
+					mk('text', {
+						x: 0,
+						y: 0
+					}, [i])
+				]);
+				if (i > 0) {
+					this.segs[i - 1] = mk('path', {
+						'class': 'interp',
+						'd': 'M 0,0 L 0,0',
+						'data-start-index': i - 1,
+						'data-end-index': i
+					});
+				}
+			}
+			for (s of this.segs) { svg.appendChild(s); }
+			for (p of this.points) { svg.appendChild(p); }
+		};
+
+		Construction.prototype.show = function(p) {
+			for (var i = 0; i != this.segs.length; ++i) {
+				var seg = this.segs[i];
+				var m = seg.pathSegList[0];
+				var l = seg.pathSegList[1];
+				var start = p[i];
+				var end = p[i + 1];
+				m.x = start.x;
+				m.y = start.y;
+				l.x = end.x;
+				l.y = end.y;
+			}
+
+			for (var i = 0; i != this.points.length; ++i) {
+				this.points[i].setAttribute('transform', 'translate' + p[i].str2);
+			}
+		};
+
+		function update() {
+			var p0 = Curve.at(t_min.value);
+			var p = Curve.at(t_max.value);
+			var rows = [
+				'start',
+				'cp<sub>0</sub>',
+				'cp<sub>1</sub>',
+				'end',
+				'lerp(p<sub>0</sub>, p<sub>1</sub>)',
+				'lerp(p<sub>1</sub>, p<sub>2</sub>)',
+				'lerp(p<sub>2</sub>, p<sub>3</sub>)',
+				'lerp(p<sub>4</sub>, p<sub>5</sub>)',
+				'lerp(p<sub>5</sub>, p<sub>6</sub>)',
+				'lerp(p<sub>7</sub>, p<sub>8</sub>)'];
+			tbody = '';
+			for (var i = 0; i != rows.length; ++i) {
+				tbody += '<tr><td>p<sub>' + i + '</sub></td>';
+				tbody += '<td>' + rows[i] + ' = </td>'
+				tbody += '<td>' + Math.round10(p[i].x, -2) + ', ' +
+					Math.round10(p[i].y, -2) + '</td></tr>'
+			}
+			data.innerHTML = tbody;
+/*
+			segs = [p0p1, p1p2, p2p3, p4p5, p5p6, p7p8];
+			for (var i = 0; i != segs.length; ++i) {
+				i1 = segs[i].id[1] * 1;
+				i2 = segs[i].id[3] * 1;
+				segs[i].pathSegList[0].x = p[i1].x;
+				segs[i].pathSegList[0].y = p[i1].y;
+				segs[i].pathSegList[1].x = p[i2].x;
+				segs[i].pathSegList[1].y = p[i2].y;
+			}
+			p9.setAttribute('cx', p[9].x);
+			p9.setAttribute('cy', p[9].y);
+*/
+			var m = partial.pathSegList[0];
+			m.x = p0.val.x;
+			m.y = p0.val.y;
+
+			var c = partial.pathSegList[1];
+			var origDist = Curve.at(1).val.sum2(Curve.at(0).val.neg).mag2;
+			var currentDist = p.val.sum2(p0.val.neg).mag2;
+
+			
+			var c1 = p0[4];
+			var c2 = p[7];
+			c.x1 = c1.x;
+			c.y1 = c1.y;
+			c.x2 = c2.x;
+			c.y2 = c2.y;
+			c.x = p.val.x;
+			c.y = p.val.y;
+		};
+
+		function tInput(event) {
+			 update();
+			constructTMax.show(Curve.at(t_min.value));
+		}
+
+		var constructTMin = new Construction(svg);
+		var constructTMax = new Construction(svg);
+		update();
+		constructTMax.show(Curve.at(t_max.value));
+	</script>
+</body>
+</html>
