@@ -16,27 +16,35 @@ Object.defineProperties (Array.prototype, {
 		enumerable: false,
 		get: function() { return [this.y, this.x]; }
 	},
-	str2: {
+	str: {
 		enumerable: false,
 		get: function() {
-			return '(' + this.x + ',' + this.y + ')';
+			return '(' + this.join(',') + ')';
 		}
 	},
-	mag2: {
+	mag: {
 		enumerable: false,
 		get: function() {
-			return Math.sqrt(this.dot2(this));
+			return Math.sqrt(this.magSq.reduce(function(x, y) {
+				return x + y;
+			}));
 		}
 	},
+	magSq: {
+		enumerable: false,
+		get: function() {
+			return this.map(function(x) { return x * x; });
+		}
+	}
 	neg: {
 		enumerable: false,
 		get: function() {
-			return [-this.x, -this.y];
+			return this.map(function(x) { return -x; });
 		}
 	}
 });
 
-Array.prototype.sum2 = function sum2(other) {
+Array.prototype.add = function add(other) {
 	return [this.x + other.x, this.y + other.y];
 };
 
