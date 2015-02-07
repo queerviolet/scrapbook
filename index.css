@@ -1,0 +1,31 @@
+.scrapbook-toc {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+.scrapbook-tile {
+  display: inline-block;
+  position: relative;
+  width: 33%;
+  height: 33%;
+}
+.scrapbook-tile > iframe {
+  width: 100%;
+  height: 100%;
+}
+/* if no flexbox: */
+.scrapbook-toc {
+  display: block;
+  line-height: 0;
+}
+/*.scrapbook-tile { width: 33.3333%; height: 32%; }*/
+/* else: */
+.scrapbook-toc {
+  display: flex;
+  flex-wrap: wrap;
+}
+.scrapbook-tile {
+  width: calc(33.33333333vw);
+  height: calc(33.33333333vw);
+}

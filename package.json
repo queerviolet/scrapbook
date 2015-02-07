@@ -1,0 +1,24 @@
+{
+  "name": "scrapbook",
+  "version": "1.0.0",
+  "description": "A scrapbook of web artifacts.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/queerviolet/scrapbook.git"
+  },
+  "author": "Ashi Krishnan <me@ashi.works>",
+  "license": "CC-0 Universal",
+  "bugs": {
+    "url": "https://github.com/queerviolet/scrapbook/issues"
+  },
+  "homepage": "https://github.com/queerviolet/scrapbook",
+  "dependencies": {
+    "jade": "^1.9.1",
+    "less": "^2.3.1",
+    "walk": "^2.3.9"
+  }
+}

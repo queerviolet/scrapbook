@@ -1,0 +1,22 @@
+doctype html
+html
+  head
+    title scrapbook
+    link(rel='stylesheet', href='reset.css')
+    link(rel='stylesheet', href='common.css')
+    link(rel='stylesheet', href='index.css')
+    - var path = require('path')    
+    - function scraps() {
+      - var scrap_re = /\.\/[0-9]+[a-zA-Z0-9-_]*/
+      - return __files.filter(function(f) {
+        - return f.name == 'index.html' && scrap_re.test(f.dir)
+      - }).map(function(f) {
+        - return f.dir
+      - }).sort()
+    - }
+
+  body
+    ol.scrapbook-toc
+      each url in scraps()
+        li.scrapbook-tile
+          iframe(src=url)
