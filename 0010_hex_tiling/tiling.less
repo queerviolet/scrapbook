@@ -1,3 +1,5 @@
+@import "../common.less";
+
 /*
 function hexagon(turtle, radius) {
   // turtle starts pointing up.
@@ -20,6 +22,79 @@ hexagon(t, 50);
    [75.00000000000003, 93.30127018922192]
    [25.00000000000003, 93.30127018922195]
    [0, 50.00000000000004]
+
+t = new Turtle();
+t.pos = [50,100]
+t.turnLeft(90);
+hexagon(t, 50);
+  [50, 100]
+  [6.698729810778062, 75]
+  [6.698729810778054, 25]
+  [49.99999999999998, 0]
+  [93.30127018922192, 24.99999999999997]
+  [93.30127018922195, 74.99999999999997]
+  [50.00000000000004, 100]
 */
+
+.hexagonal.grid {
+  list-style: none;
+  line-height: 0;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+.hexagonal.grid > li {
+  line-height: 0;  
+  display: inline-block;
+  width: 33.33333333vw;
+  height: 33.33333333vw;
+  padding: 0;
+  margin: 0;
+
+  /*Chrome,Safari*/
+  -webkit-clip-path: polygon(
+    50% 100%,
+    6.698729810778062% 75%,
+    6.698729810778054% 25%,
+    49.99999999999998% 0,
+    93.30127018922192% 24.99999999999997%,
+    93.30127018922195% 74.99999999999997%,
+    50.00000000000004% 100%);
+}
+
+
+/*
+.hexagonal.grid > li:nth-of-type(9) {
+  margin-left: 16.66666666666%;
+}
+
+.hexagonal.grid > li:nth-of-type(14) {
+  margin-left: 16.66666666666%;
+}
+*/
+
+.generate-hex-grid-3(@n, @i: 4, @step: 5) when (@i =< @n) {
+  .hexagonal.grid > li:nth-of-type(@{i}) {
+    margin-left: 16.66666666666%;
+  }
+
+  .generate-hex-grid-3(@n, @i + @step, @step);
+}
+.generate-hex-grid-3(256);
+.generate-li-colors(256);
+
+.generate-li-colors(@n, @i: 0) when (@i < @n) {
+  @shading: rgb(10, 10, 10);
+
+  li:nth-of-type(@{i}) when (mod(@i, 2) = 1) {
+    background: @pink - (@i * @shading);
+  }
+  li:nth-of-type(@{i}) when (mod(@i, 2) = 0) {
+    background: @turquoise - (@i * @shading);
+  }
+
+  .generate-li-colors(@n, (@i + 1));
+}
 
 

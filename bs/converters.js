@@ -47,11 +47,14 @@ Converter.prototype.toString = function() {
   return [this.displayName, ':', this.src.path, '->', this.dst].join('');
 };
 
-Converter.prototype.emit = function(event) {
+Converter.prototype.emit = function(event, error) {
   console.log(this.toString(), '->', event);
   /*for (var i = 0; i != arguments.length; ++i) {
     console.log('  *', arguments[i].toString().substr(0, 80));
   }*/
+  if (event == 'error') {
+    console.error(this.toString(), error);
+  }
   EventEmitter.prototype.emit.apply(this, Array.prototype.slice.call(arguments));
 };
 
