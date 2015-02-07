@@ -66,7 +66,7 @@ Jade.prototype.run = function(build) {
   var compiled = jade.renderFile(this.src.path, {
     pretty: true,
     require: require,
-    __files: build.files,
+    build: build,
     __filename: this.src.path,
     __dirname: this.src.dir,
   });

@@ -1,0 +1,1349 @@
+@import url(http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic,700italic&subset=latin,cyrillic-ext,cyrillic,greek-ext,greek,latin-ext);
+/* purple wine */
+/* bright turquoise */
+/* teal */
+/* almost sky */
+/* basically facebook */
+/* algae slate */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+body {
+  background: black;
+  font-family: 'Ubuntu Mono', Menlo;
+  font-size: 18px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+text {
+  font-family: 'Ubuntu Mono', Menlo;
+  font-size: 18px;
+  fill: white;
+}
+p {
+  margin: 0;
+  padding: 0;
+}
+input {
+  border: 0;
+  outline: 0;
+  background: #f7f;
+  padding: 9px;
+  font-family: 'Ubuntu Mono', Menlo;
+  font-size: 18px;
+  display: inline;
+  position: relative;
+  width: auto;
+  text-align: center;
+}
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+}
+input[type="number"] {
+  width: 54px;
+}
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 0;
+  border-radius: 0;
+  outline: 0;
+  background: #f7f;
+  padding: 9px;
+  font-family: 'Ubuntu Mono', Menlo;
+  font-size: 18px;
+  display: inline;
+  position: relative;
+  width: auto;
+  text-align: center;
+}
+li:nth-of-type(0) {
+  background: #19ffdc;
+}
+li:nth-of-type(0):hover {
+  background: #19ffdc;
+}
+li:nth-of-type(0):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(1) {
+  background: #fd00fd;
+}
+li:nth-of-type(1):hover {
+  background: fuchsia;
+}
+li:nth-of-type(1):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(2) {
+  background: #19fbd9;
+}
+li:nth-of-type(2):hover {
+  background: #19ffdc;
+}
+li:nth-of-type(2):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(3) {
+  background: #f900f9;
+}
+li:nth-of-type(3):hover {
+  background: fuchsia;
+}
+li:nth-of-type(3):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(4) {
+  background: #18f7d5;
+}
+li:nth-of-type(4):hover {
+  background: #19ffdc;
+}
+li:nth-of-type(4):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(5) {
+  background: #f500f5;
+}
+li:nth-of-type(5):hover {
+  background: fuchsia;
+}
+li:nth-of-type(5):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(6) {
+  background: #18f3d2;
+}
+li:nth-of-type(6):hover {
+  background: #19ffdc;
+}
+li:nth-of-type(6):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(7) {
+  background: #f100f1;
+}
+li:nth-of-type(7):hover {
+  background: fuchsia;
+}
+li:nth-of-type(7):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(8) {
+  background: #17efce;
+}
+li:nth-of-type(8):hover {
+  background: #19ffdc;
+}
+li:nth-of-type(8):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(9) {
+  background: #ed00ed;
+}
+li:nth-of-type(9):hover {
+  background: fuchsia;
+}
+li:nth-of-type(9):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(10) {
+  background: #17ebcb;
+}
+li:nth-of-type(10):hover {
+  background: #19ffdc;
+}
+li:nth-of-type(10):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(11) {
+  background: #e900e9;
+}
+li:nth-of-type(11):hover {
+  background: fuchsia;
+}
+li:nth-of-type(11):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(12) {
+  background: #17e7c7;
+}
+li:nth-of-type(12):hover {
+  background: #19ffdc;
+}
+li:nth-of-type(12):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(13) {
+  background: #e500e5;
+}
+li:nth-of-type(13):hover {
+  background: fuchsia;
+}
+li:nth-of-type(13):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(14) {
+  background: #16e3c4;
+}
+li:nth-of-type(14):hover {
+  background: #19ffdc;
+}
+li:nth-of-type(14):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(15) {
+  background: #e100e1;
+}
+li:nth-of-type(15):hover {
+  background: fuchsia;
+}
+li:nth-of-type(15):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(16) {
+  background: #16dfc1;
+}
+li:nth-of-type(16):hover {
+  background: #19ffdc;
+}
+li:nth-of-type(16):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(17) {
+  background: #dd00dd;
+}
+li:nth-of-type(17):hover {
+  background: fuchsia;
+}
+li:nth-of-type(17):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(18) {
+  background: #15dbbd;
+}
+li:nth-of-type(18):hover {
+  background: #19ffdc;
+}
+li:nth-of-type(18):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(19) {
+  background: #d900d9;
+}
+li:nth-of-type(19):hover {
+  background: fuchsia;
+}
+li:nth-of-type(19):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(20) {
+  background: #15d7ba;
+}
+li:nth-of-type(20):hover {
+  background: #19ffdc;
+}
+li:nth-of-type(20):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(21) {
+  background: #d500d5;
+}
+li:nth-of-type(21):hover {
+  background: fuchsia;
+}
+li:nth-of-type(21):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(22) {
+  background: #15d3b6;
+}
+li:nth-of-type(22):hover {
+  background: #19ffdc;
+}
+li:nth-of-type(22):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(23) {
+  background: #d100d1;
+}
+li:nth-of-type(23):hover {
+  background: fuchsia;
+}
+li:nth-of-type(23):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(24) {
+  background: #14cfb3;
+}
+li:nth-of-type(24):hover {
+  background: #19ffdc;
+}
+li:nth-of-type(24):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(25) {
+  background: #cd00cd;
+}
+li:nth-of-type(25):hover {
+  background: fuchsia;
+}
+li:nth-of-type(25):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(26) {
+  background: #14cbaf;
+}
+li:nth-of-type(26):hover {
+  background: #19ffdc;
+}
+li:nth-of-type(26):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(27) {
+  background: #c900c9;
+}
+li:nth-of-type(27):hover {
+  background: fuchsia;
+}
+li:nth-of-type(27):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(28) {
+  background: #14c7ac;
+}
+li:nth-of-type(28):hover {
+  background: #19ffdc;
+}
+li:nth-of-type(28):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(29) {
+  background: #c500c5;
+}
+li:nth-of-type(29):hover {
+  background: fuchsia;
+}
+li:nth-of-type(29):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(30) {
+  background: #13c3a8;
+}
+li:nth-of-type(30):hover {
+  background: #19ffdc;
+}
+li:nth-of-type(30):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(31) {
+  background: #c100c1;
+}
+li:nth-of-type(31):hover {
+  background: fuchsia;
+}
+li:nth-of-type(31):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(32) {
+  background: #13bfa5;
+}
+li:nth-of-type(32):hover {
+  background: #19ffdc;
+}
+li:nth-of-type(32):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(33) {
+  background: #bd00bd;
+}
+li:nth-of-type(33):hover {
+  background: fuchsia;
+}
+li:nth-of-type(33):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(34) {
+  background: #12bba2;
+}
+li:nth-of-type(34):hover {
+  background: #19ffdc;
+}
+li:nth-of-type(34):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(35) {
+  background: #b900b9;
+}
+li:nth-of-type(35):hover {
+  background: fuchsia;
+}
+li:nth-of-type(35):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(36) {
+  background: #12b79e;
+}
+li:nth-of-type(36):hover {
+  background: #19ffdc;
+}
+li:nth-of-type(36):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(37) {
+  background: #b500b5;
+}
+li:nth-of-type(37):hover {
+  background: fuchsia;
+}
+li:nth-of-type(37):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(38) {
+  background: #12b39b;
+}
+li:nth-of-type(38):hover {
+  background: #19ffdc;
+}
+li:nth-of-type(38):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(39) {
+  background: #b100b1;
+}
+li:nth-of-type(39):hover {
+  background: fuchsia;
+}
+li:nth-of-type(39):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(40) {
+  background: #11af97;
+}
+li:nth-of-type(40):hover {
+  background: #19ffdc;
+}
+li:nth-of-type(40):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(41) {
+  background: #ad00ad;
+}
+li:nth-of-type(41):hover {
+  background: fuchsia;
+}
+li:nth-of-type(41):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(42) {
+  background: #11ab94;
+}
+li:nth-of-type(42):hover {
+  background: #19ffdc;
+}
+li:nth-of-type(42):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(43) {
+  background: #a900a9;
+}
+li:nth-of-type(43):hover {
+  background: fuchsia;
+}
+li:nth-of-type(43):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(44) {
+  background: #10a790;
+}
+li:nth-of-type(44):hover {
+  background: #19ffdc;
+}
+li:nth-of-type(44):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(45) {
+  background: #a500a5;
+}
+li:nth-of-type(45):hover {
+  background: fuchsia;
+}
+li:nth-of-type(45):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(46) {
+  background: #10a38d;
+}
+li:nth-of-type(46):hover {
+  background: #19ffdc;
+}
+li:nth-of-type(46):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(47) {
+  background: #a100a1;
+}
+li:nth-of-type(47):hover {
+  background: fuchsia;
+}
+li:nth-of-type(47):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(48) {
+  background: #109f8a;
+}
+li:nth-of-type(48):hover {
+  background: #19ffdc;
+}
+li:nth-of-type(48):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(49) {
+  background: #9d009d;
+}
+li:nth-of-type(49):hover {
+  background: fuchsia;
+}
+li:nth-of-type(49):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(50) {
+  background: #0f9b86;
+}
+li:nth-of-type(50):hover {
+  background: #19ffdc;
+}
+li:nth-of-type(50):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(51) {
+  background: #990099;
+}
+li:nth-of-type(51):hover {
+  background: fuchsia;
+}
+li:nth-of-type(51):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(52) {
+  background: #0f9783;
+}
+li:nth-of-type(52):hover {
+  background: #19ffdc;
+}
+li:nth-of-type(52):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(53) {
+  background: #950095;
+}
+li:nth-of-type(53):hover {
+  background: fuchsia;
+}
+li:nth-of-type(53):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(54) {
+  background: #0e937f;
+}
+li:nth-of-type(54):hover {
+  background: #19ffdc;
+}
+li:nth-of-type(54):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(55) {
+  background: #910091;
+}
+li:nth-of-type(55):hover {
+  background: fuchsia;
+}
+li:nth-of-type(55):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(56) {
+  background: #0e8f7c;
+}
+li:nth-of-type(56):hover {
+  background: #19ffdc;
+}
+li:nth-of-type(56):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(57) {
+  background: #8d008d;
+}
+li:nth-of-type(57):hover {
+  background: fuchsia;
+}
+li:nth-of-type(57):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(58) {
+  background: #0e8b78;
+}
+li:nth-of-type(58):hover {
+  background: #19ffdc;
+}
+li:nth-of-type(58):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(59) {
+  background: #890089;
+}
+li:nth-of-type(59):hover {
+  background: fuchsia;
+}
+li:nth-of-type(59):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(60) {
+  background: #0d8775;
+}
+li:nth-of-type(60):hover {
+  background: #19ffdc;
+}
+li:nth-of-type(60):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(61) {
+  background: #850085;
+}
+li:nth-of-type(61):hover {
+  background: fuchsia;
+}
+li:nth-of-type(61):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(62) {
+  background: #0d8371;
+}
+li:nth-of-type(62):hover {
+  background: #19ffdc;
+}
+li:nth-of-type(62):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(63) {
+  background: #810081;
+}
+li:nth-of-type(63):hover {
+  background: fuchsia;
+}
+li:nth-of-type(63):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(64) {
+  background: #0d806e;
+}
+li:nth-of-type(64):hover {
+  background: #19ffdc;
+}
+li:nth-of-type(64):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(65) {
+  background: #7e007e;
+}
+li:nth-of-type(65):hover {
+  background: fuchsia;
+}
+li:nth-of-type(65):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(66) {
+  background: #0c7c6b;
+}
+li:nth-of-type(66):hover {
+  background: #19ffdc;
+}
+li:nth-of-type(66):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(67) {
+  background: #7a007a;
+}
+li:nth-of-type(67):hover {
+  background: fuchsia;
+}
+li:nth-of-type(67):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(68) {
+  background: #0c7867;
+}
+li:nth-of-type(68):hover {
+  background: #19ffdc;
+}
+li:nth-of-type(68):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(69) {
+  background: #760076;
+}
+li:nth-of-type(69):hover {
+  background: fuchsia;
+}
+li:nth-of-type(69):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(70) {
+  background: #0b7464;
+}
+li:nth-of-type(70):hover {
+  background: #19ffdc;
+}
+li:nth-of-type(70):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(71) {
+  background: #720072;
+}
+li:nth-of-type(71):hover {
+  background: fuchsia;
+}
+li:nth-of-type(71):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(72) {
+  background: #0b7060;
+}
+li:nth-of-type(72):hover {
+  background: #19ffdc;
+}
+li:nth-of-type(72):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(73) {
+  background: #6e006e;
+}
+li:nth-of-type(73):hover {
+  background: fuchsia;
+}
+li:nth-of-type(73):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(74) {
+  background: #0b6c5d;
+}
+li:nth-of-type(74):hover {
+  background: #19ffdc;
+}
+li:nth-of-type(74):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(75) {
+  background: #6a006a;
+}
+li:nth-of-type(75):hover {
+  background: fuchsia;
+}
+li:nth-of-type(75):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(76) {
+  background: #0a6859;
+}
+li:nth-of-type(76):hover {
+  background: #19ffdc;
+}
+li:nth-of-type(76):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(77) {
+  background: #660066;
+}
+li:nth-of-type(77):hover {
+  background: fuchsia;
+}
+li:nth-of-type(77):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(78) {
+  background: #0a6456;
+}
+li:nth-of-type(78):hover {
+  background: #19ffdc;
+}
+li:nth-of-type(78):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(79) {
+  background: #620062;
+}
+li:nth-of-type(79):hover {
+  background: fuchsia;
+}
+li:nth-of-type(79):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(80) {
+  background: #096053;
+}
+li:nth-of-type(80):hover {
+  background: #19ffdc;
+}
+li:nth-of-type(80):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(81) {
+  background: #5e005e;
+}
+li:nth-of-type(81):hover {
+  background: fuchsia;
+}
+li:nth-of-type(81):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(82) {
+  background: #095c4f;
+}
+li:nth-of-type(82):hover {
+  background: #19ffdc;
+}
+li:nth-of-type(82):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(83) {
+  background: #5a005a;
+}
+li:nth-of-type(83):hover {
+  background: fuchsia;
+}
+li:nth-of-type(83):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(84) {
+  background: #09584c;
+}
+li:nth-of-type(84):hover {
+  background: #19ffdc;
+}
+li:nth-of-type(84):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(85) {
+  background: #560056;
+}
+li:nth-of-type(85):hover {
+  background: fuchsia;
+}
+li:nth-of-type(85):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(86) {
+  background: #085448;
+}
+li:nth-of-type(86):hover {
+  background: #19ffdc;
+}
+li:nth-of-type(86):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(87) {
+  background: #520052;
+}
+li:nth-of-type(87):hover {
+  background: fuchsia;
+}
+li:nth-of-type(87):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(88) {
+  background: #085045;
+}
+li:nth-of-type(88):hover {
+  background: #19ffdc;
+}
+li:nth-of-type(88):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(89) {
+  background: #4e004e;
+}
+li:nth-of-type(89):hover {
+  background: fuchsia;
+}
+li:nth-of-type(89):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(90) {
+  background: #074c41;
+}
+li:nth-of-type(90):hover {
+  background: #19ffdc;
+}
+li:nth-of-type(90):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(91) {
+  background: #4a004a;
+}
+li:nth-of-type(91):hover {
+  background: fuchsia;
+}
+li:nth-of-type(91):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(92) {
+  background: #07483e;
+}
+li:nth-of-type(92):hover {
+  background: #19ffdc;
+}
+li:nth-of-type(92):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(93) {
+  background: #460046;
+}
+li:nth-of-type(93):hover {
+  background: fuchsia;
+}
+li:nth-of-type(93):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(94) {
+  background: #07443a;
+}
+li:nth-of-type(94):hover {
+  background: #19ffdc;
+}
+li:nth-of-type(94):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(95) {
+  background: #420042;
+}
+li:nth-of-type(95):hover {
+  background: fuchsia;
+}
+li:nth-of-type(95):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(96) {
+  background: #064037;
+}
+li:nth-of-type(96):hover {
+  background: #19ffdc;
+}
+li:nth-of-type(96):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(97) {
+  background: #3e003e;
+}
+li:nth-of-type(97):hover {
+  background: fuchsia;
+}
+li:nth-of-type(97):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(98) {
+  background: #063c34;
+}
+li:nth-of-type(98):hover {
+  background: #19ffdc;
+}
+li:nth-of-type(98):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(99) {
+  background: #3a003a;
+}
+li:nth-of-type(99):hover {
+  background: fuchsia;
+}
+li:nth-of-type(99):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(100) {
+  background: #053830;
+}
+li:nth-of-type(100):hover {
+  background: #19ffdc;
+}
+li:nth-of-type(100):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(101) {
+  background: #360036;
+}
+li:nth-of-type(101):hover {
+  background: fuchsia;
+}
+li:nth-of-type(101):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(102) {
+  background: #05342d;
+}
+li:nth-of-type(102):hover {
+  background: #19ffdc;
+}
+li:nth-of-type(102):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(103) {
+  background: #320032;
+}
+li:nth-of-type(103):hover {
+  background: fuchsia;
+}
+li:nth-of-type(103):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(104) {
+  background: #053029;
+}
+li:nth-of-type(104):hover {
+  background: #19ffdc;
+}
+li:nth-of-type(104):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(105) {
+  background: #2e002e;
+}
+li:nth-of-type(105):hover {
+  background: fuchsia;
+}
+li:nth-of-type(105):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(106) {
+  background: #042c26;
+}
+li:nth-of-type(106):hover {
+  background: #19ffdc;
+}
+li:nth-of-type(106):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(107) {
+  background: #2a002a;
+}
+li:nth-of-type(107):hover {
+  background: fuchsia;
+}
+li:nth-of-type(107):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(108) {
+  background: #042822;
+}
+li:nth-of-type(108):hover {
+  background: #19ffdc;
+}
+li:nth-of-type(108):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(109) {
+  background: #260026;
+}
+li:nth-of-type(109):hover {
+  background: fuchsia;
+}
+li:nth-of-type(109):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(110) {
+  background: #04241f;
+}
+li:nth-of-type(110):hover {
+  background: #19ffdc;
+}
+li:nth-of-type(110):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(111) {
+  background: #220022;
+}
+li:nth-of-type(111):hover {
+  background: fuchsia;
+}
+li:nth-of-type(111):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(112) {
+  background: #03201c;
+}
+li:nth-of-type(112):hover {
+  background: #19ffdc;
+}
+li:nth-of-type(112):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(113) {
+  background: #1e001e;
+}
+li:nth-of-type(113):hover {
+  background: fuchsia;
+}
+li:nth-of-type(113):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(114) {
+  background: #031c18;
+}
+li:nth-of-type(114):hover {
+  background: #19ffdc;
+}
+li:nth-of-type(114):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(115) {
+  background: #1a001a;
+}
+li:nth-of-type(115):hover {
+  background: fuchsia;
+}
+li:nth-of-type(115):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(116) {
+  background: #021815;
+}
+li:nth-of-type(116):hover {
+  background: #19ffdc;
+}
+li:nth-of-type(116):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(117) {
+  background: #160016;
+}
+li:nth-of-type(117):hover {
+  background: fuchsia;
+}
+li:nth-of-type(117):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(118) {
+  background: #021411;
+}
+li:nth-of-type(118):hover {
+  background: #19ffdc;
+}
+li:nth-of-type(118):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(119) {
+  background: #120012;
+}
+li:nth-of-type(119):hover {
+  background: fuchsia;
+}
+li:nth-of-type(119):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(120) {
+  background: #02100e;
+}
+li:nth-of-type(120):hover {
+  background: #19ffdc;
+}
+li:nth-of-type(120):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(121) {
+  background: #0e000e;
+}
+li:nth-of-type(121):hover {
+  background: fuchsia;
+}
+li:nth-of-type(121):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(122) {
+  background: #010c0a;
+}
+li:nth-of-type(122):hover {
+  background: #19ffdc;
+}
+li:nth-of-type(122):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(123) {
+  background: #0a000a;
+}
+li:nth-of-type(123):hover {
+  background: fuchsia;
+}
+li:nth-of-type(123):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(124) {
+  background: #010807;
+}
+li:nth-of-type(124):hover {
+  background: #19ffdc;
+}
+li:nth-of-type(124):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(125) {
+  background: #060006;
+}
+li:nth-of-type(125):hover {
+  background: fuchsia;
+}
+li:nth-of-type(125):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(126) {
+  background: #000403;
+}
+li:nth-of-type(126):hover {
+  background: #19ffdc;
+}
+li:nth-of-type(126):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}
+li:nth-of-type(127) {
+  background: #020002;
+}
+li:nth-of-type(127):hover {
+  background: fuchsia;
+}
+li:nth-of-type(127):hover {
+  transform: scale(1.2);
+  z-index: 10000000;
+}

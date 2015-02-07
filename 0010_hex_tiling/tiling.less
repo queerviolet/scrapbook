@@ -1,4 +1,27 @@
+@import "../reset.css";
 @import "../common.less";
+
+/*
+
+Usages:
+
+  .your_grid_container {
+    .responsive_hex_tiling(
+      @min_columns: 2, @max_columns: 16, @step: 300px,
+      @grid_size: 100%, @cells: ~'> li')
+  }
+
+All options are optional, and those are the defaults.
+
+Static grid:
+
+  .your_grid_container {
+    .hex_tiling(@columns: 3, @grid_size: 100%, @cells: ~'> li');
+  }
+
+
+*/
+
 
 /*
 function hexagon(turtle, radius) {
@@ -36,65 +59,78 @@ hexagon(t, 50);
   [50.00000000000004, 100]
 */
 
-.hexagonal.grid {
-  list-style: none;
-  line-height: 0;
-  position: relative;
-  margin: 0;
-  padding: 0;
-}
+// You can use this to transform cells to be big enough to meet.
+@hex_scaling_full_bleed: 100 / (100 - 2 * 6.698729810778);
 
-.hexagonal.grid > li {
-  line-height: 0;  
-  display: inline-block;
-  width: 33.33333333vw;
-  height: 33.33333333vw;
-  padding: 0;
-  margin: 0;
+.hex_tiling(@columns, @grid_size: 100%, @cells: ~'> li') {
+  @cell_size: @grid_size / @columns;
+  
+  @{cells} {
+    float: left;
+    line-height: 0;  
+    display: inline-block;
+    width: @cell_size;
+    height: @cell_size;
+    overflow: hidden;
 
-  /*Chrome,Safari*/
-  -webkit-clip-path: polygon(
-    50% 100%,
-    6.698729810778062% 75%,
-    6.698729810778054% 25%,
-    49.99999999999998% 0,
-    93.30127018922192% 24.99999999999997%,
-    93.30127018922195% 74.99999999999997%,
-    50.00000000000004% 100%);
-}
-
-
-/*
-.hexagonal.grid > li:nth-of-type(9) {
-  margin-left: 16.66666666666%;
-}
-
-.hexagonal.grid > li:nth-of-type(14) {
-  margin-left: 16.66666666666%;
-}
-*/
-
-.generate-hex-grid-3(@n, @i: 4, @step: 5) when (@i =< @n) {
-  .hexagonal.grid > li:nth-of-type(@{i}) {
-    margin-left: 16.66666666666%;
+    /*Chrome,Safari*/
+    -webkit-clip-path: polygon(
+      50% 100%,
+      6.698729810778062% 75%,
+      6.698729810778054% 25%,
+      50% 0,
+      93.30127018922192% 25%,
+      93.30127018922195% 75%,
+      50% 100%);
   }
 
-  .generate-hex-grid-3(@n, @i + @step, @step);
+  @cluster: 2 * @columns - 1;
+  @after_first_row: @columns + 1;
+
+  @{cells}:nth-of-type(n + @{after_first_row}) {
+    margin-top: -0.06698729810778062 * 2 * @cell_size;
+  }
+
+  @row_start: @columns - 2;
+  @{cells}:nth-of-type(@{cluster}n - @{row_start}) {
+    margin-left: @cell_size / 2;
+  }
 }
-.generate-hex-grid-3(256);
-.generate-li-colors(256);
 
-.generate-li-colors(@n, @i: 0) when (@i < @n) {
-  @shading: rgb(10, 10, 10);
-
-  li:nth-of-type(@{i}) when (mod(@i, 2) = 1) {
-    background: @pink - (@i * @shading);
+.responsive_hex_tiling(
+  @min_columns: 2, @max_columns: 16, @step: 300px,
+  @grid_size: 100%, @cells: ~'> li') {
+ .n_columns(@n: @min_columns) when (@n = @min_columns) {
+    @media screen and (max-width: ((@n + 1) * @step)) {
+      .hex_tiling(@columns: @n, @grid_size: @grid_size, @cells: @cells);
+    }
+    .n_columns(@n: @n + 1);
   }
-  li:nth-of-type(@{i}) when (mod(@i, 2) = 0) {
-    background: @turquoise - (@i * @shading);
+  .n_columns(@n: @min_columns) when (@n =< @max_columns) {
+    @media screen and (min-width: (@n * @step)) and (max-width: ((@n + 1) * @step)) {
+      /* @n columns */
+      .hex_tiling(@columns: @n, @grid_size: @grid_size, @cells: @cells);
+    }    
+    .n_columns(@n: @n + 1);
+  }
+  .n_columns(@n: @min_columns) when (@n = @max_columns) {
+    @media screen and (min-width: (@n * @step)) {
+      .hex_tiling(@columns: @n, @grid_size: @grid_size, @cells: @cells);
+    }    
+    .n_columns(@n: @n + 1);
   }
 
-  .generate-li-colors(@n, (@i + 1));
+  .n_columns(@min_columns);
+}
+
+.honeycomb {
+  .responsive_hex_tiling(@step: 150px, @grid_size: 100vw);
+  width: 100%;
+  height: 100%;
+}
+
+.honeycomb > li {
+  transition: clip-path 113ms, -webkit-clip-path 113ms;
 }
 
 

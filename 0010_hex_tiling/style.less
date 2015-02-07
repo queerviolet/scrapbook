@@ -1,0 +1,22 @@
+@import "../common.less";
+
+.generate-li-colors(128);
+
+.generate-li-colors(@n, @i: 0) when (@i < @n) {
+  li:nth-of-type(@{i}) when (mod(@i, 2) = 1) {
+    background: @pink - (@i * @pink / @n);
+    &:hover { background: @pink; }
+  }
+  li:nth-of-type(@{i}) when (mod(@i, 2) = 0) {
+    background: @turquoise - (@i * @turquoise / @n);
+    &:hover { background: @turquoise; }
+  }
+
+
+  li:nth-of-type(@{i}):hover {
+    transform: scale(1.2);
+    z-index: 10000000;
+  }
+
+  .generate-li-colors(@n, (@i + 1));
+}
