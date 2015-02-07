@@ -1,6 +1,6 @@
 [submodule "benchmark.js"]
 	path = benchmark.js
-	url = https://github.com:bestiejs/benchmark.js.git
+	url = https://github.com/bestiejs/benchmark.js.git
 [submodule "CodeMirror"]
 	path = CodeMirror
 	url = https://github.com:codemirror/CodeMirror.git
