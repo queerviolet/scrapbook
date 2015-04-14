@@ -134,13 +134,6 @@ var Twenty48 = (function() {
 
   // Falls left.
   function fall(ary) {
-    var rowSz = ary[0].length;
-    var zeroes = new Array(rowSz);
-    var i = rowSz;
-    while (--i >= 0) {
-      zeroes[i] = 0;
-    }
-
     i = ary.length;    
     while (--i >= 0) {
       ary[i] = ary[i].filter(function(x) { return x; });
