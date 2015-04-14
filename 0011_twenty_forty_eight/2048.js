@@ -212,6 +212,7 @@
 
   elProto.attachedCallback = function() {
     window.addEventListener('keydown', this.onKeyDown);
+    this.update();
   };
 
   elProto.detachedCallback = function() {
