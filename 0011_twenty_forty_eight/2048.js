@@ -147,7 +147,6 @@ var Twenty48 = (function() {
       var prev = null;
       for (var c = 0; c < ary[r].length; ++c) {
         if (prev && prev.canMerge(ary[r][c])) {
-          console.log('merging');
           ary[r].splice(c - 1, 2, prev.merged(ary[r][c]));
           prev = null;
         } else {
@@ -213,7 +212,6 @@ var Twenty48 = (function() {
   };
 
   elProto.onKeyDown = function(evt) {
-    console.log(evt);
     var move = evt.keyIdentifier.toLowerCase();
     if (move in this.game) {
       this.game[move]();
