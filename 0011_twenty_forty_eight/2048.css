@@ -7,6 +7,11 @@ twenty-48 {
   font-size: 36pt;
   width: 8.8em;
   height: 8.8em;
+
+  animation-duration: 2000ms;
+  animation-name: fadein;  
+  -webkit-animation-duration: 2000ms;
+  -webkit-animation-name: fadein;  
 }
 
 twenty-48-tile {
@@ -17,7 +22,21 @@ twenty-48-tile {
   vertical-align: middle;
   text-align: center;
   background: fuchsia;
-  transition: top 200ms, left 200ms, opacity 300ms;
+  transition: top 200ms, left 200ms, opacity 200ms;
+  animation-duration: 200ms;
+  animation-name: fadein;  
+  -webkit-animation-duration: 200ms;
+  -webkit-animation-name: fadein;
+}
+
+@-webkit-keyframes fadein {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 twenty-48-tile[data-row="0"] { top: 0; }
