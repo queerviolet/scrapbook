@@ -134,7 +134,7 @@ var Twenty48 = (function() {
 
   // Falls left.
   function fall(ary) {
-    i = ary.length;    
+    var i = ary.length;    
     while (--i >= 0) {
       ary[i] = ary[i].filter(function(x) { return x; });
     }
