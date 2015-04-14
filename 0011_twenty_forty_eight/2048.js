@@ -1,6 +1,6 @@
 "use strict";
 
-//var Twenty48 = (function() {
+var Twenty48 = (function() {
   function Tile(value) {
     this.value = value;
     this.parents = Array.prototype.slice.call(arguments, 1);
@@ -264,7 +264,9 @@
     }
   };
 
-  document.registerElement('twenty-48', {prototype: elProto});
-
-//})();
+  return {
+    Game: Game,
+    Element: document.registerElement('twenty-48', {prototype: elProto}),
+  };
+})();
 
