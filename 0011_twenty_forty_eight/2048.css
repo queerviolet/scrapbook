@@ -1,0 +1,40 @@
+@import url(http://fonts.googleapis.com/css?family=Ubuntu+Mono:700);
+
+twenty-48 {
+  display: block;
+  position: relative;
+  font-family: 'Ubuntu Mono';
+  font-size: 36pt;
+  width: 8.8em;
+  height: 8.8em;
+}
+
+twenty-48-tile {
+  display: block;
+  position: absolute;
+  width: 2em; height: 2em;
+  line-height: 2em;
+  vertical-align: middle;
+  text-align: center;
+  background: fuchsia;
+  transition: top 200ms, left 200ms, opacity 300ms;
+}
+
+twenty-48-tile[data-row="0"] { top: 0; }
+twenty-48-tile[data-row="1"] { top: 2.2em; }
+twenty-48-tile[data-row="2"] { top: 4.4em; }
+twenty-48-tile[data-row="3"] { top: 6.6em; }
+
+twenty-48-tile[data-col="0"] { left: 0; }
+twenty-48-tile[data-col="1"] { left: 2.2em; }
+twenty-48-tile[data-col="2"] { left: 4.4em; }
+twenty-48-tile[data-col="3"] { left: 6.6em; }
+
+twenty-48-tile[data-dead] {
+  opacity: 0;
+}
+
+twenty-48-tile[data-dead].bg {
+  opacity: 1;
+  background: #222;
+}
